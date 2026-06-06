@@ -1,113 +1,66 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiX, FiPlus, FiMinus, FiTrash2 } from 'react-icons/fi';
+import { Icons } from './Icons';
 
-function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity, onRemove, total }) {
+function CartDrawer({ isOpen, onClose, cart, onRemove, total, shipping, finalTotal, isDarkMode }) {
+  if (!isOpen) return null;
+
   return (
-    <AnimatePresence>
-      {isOpen && (
+    <div style={{ position: 'fixed', top: 0, right: 0, width: '450px', height: '100vh', background: isDarkMode ? '#0a0a0f' : '#fff', boxShadow: '-5px 0 30px rgba(0,0,0,0.2)', zIndex: 200, padding: '28px', overflowY: 'auto' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '28px' }}>
+        <h3 style={{ fontSize: '26px', fontWeight: 700, color: isDarkMode ? '#fff' : '#1a1a2e' }}>Your Cart</h3>
+        <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#888' }}><Icons.Close /></button>
+      </div>
+      
+      {cart.length === 0 ? (
+        <div style={{ textAlign: 'center', padding: '80px 0' }}>
+          <p style={{ color: '#888', fontSize: '16px' }}>Your cart is empty</p>
+        </div>
+      ) : (
         <>
-          {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              background: 'rgba(0,0,0,0.7)',
-              zIndex: 2000,
-            }}
-          />
-
-          {/* Drawer */}
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25 }}
-            style={{
-              position: 'fixed',
-              top: 0,
-              right: 0,
-              width: '100%',
-              maxWidth: '450px',
-              height: '100vh',
-              background: 'rgba(5,8,22,0.95)',
-              backdropFilter: 'blur(20px)',
-              zIndex: 2001,
-              display: 'flex',
-              flexDirection: 'column',
-              boxShadow: '-5px 0 30px rgba(0,0,0,0.3)'
-            }}
-          >
-            {/* Header */}
-            <div className="d-flex justify-content-between align-items-center p-4 border-bottom" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
-              <h5 className="fw-bold mb-0">Your Cart ({cart.reduce((s, i) => s + i.quantity, 0)})</h5>
-              <motion.button whileTap={{ scale: 0.9 }} onClick={onClose} className="btn p-0" style={{ background: 'none' }}>
-                <FiX size={24} color="white" />
-              </motion.button>
-            </div>
-
-            {/* Cart Items */}
-            <div className="flex-grow-1 overflow-auto p-4">
-              {cart.length === 0 ? (
-                <div className="text-center py-5">
-                  <p className="text-white-50">Your cart is empty</p>
-                </div>
-              ) : (
-                cart.map(item => (
-                  <div key={item.id} className="d-flex gap-3 mb-4 pb-3 border-bottom" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
-                    <img src={item.image} alt={item.name} style={{ width: '70px', height: '70px', objectFit: 'cover', borderRadius: '12px' }} />
-                    <div className="flex-grow-1">
-                      <h6 className="fw-bold mb-1">{item.name}</h6>
-                      <p className="gradient-text fw-bold mb-2">${item.price}</p>
-                      <div className="d-flex align-items-center gap-2">
-                        <motion.button whileTap={{ scale: 0.9 }} onClick={() => onUpdateQuantity(item.id, item.quantity - 1)} className="btn p-0" style={{ background: 'rgba(255,255,255,0.05)', width: '28px', height: '28px', borderRadius: '8px' }}>
-                          <FiMinus size={12} />
-                        </motion.button>
-                        <span className="small">{item.quantity}</span>
-                        <motion.button whileTap={{ scale: 0.9 }} onClick={() => onUpdateQuantity(item.id, item.quantity + 1)} className="btn p-0" style={{ background: 'rgba(255,255,255,0.05)', width: '28px', height: '28px', borderRadius: '8px' }}>
-                          <FiPlus size={12} />
-                        </motion.button>
-                        <motion.button whileTap={{ scale: 0.9 }} onClick={() => onRemove(item.id)} className="btn p-0 ms-auto" style={{ color: '#FF3366' }}>
-                          <FiTrash2 size={16} />
-                        </motion.button>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-
-            {/* Footer */}
-            {cart.length > 0 && (
-              <div className="p-4 border-top" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
-                <div className="d-flex justify-content-between mb-3">
-                  <span>Subtotal</span>
-                  <span className="gradient-text fw-bold">${total.toFixed(2)}</span>
-                </div>
-                <div className="d-flex justify-content-between mb-3">
-                  <span>Shipping</span>
-                  <span>$5.00</span>
-                </div>
-                <div className="d-flex justify-content-between mb-3 pt-2 border-top" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
-                  <span className="fw-bold">Total</span>
-                  <span className="gradient-text fw-bold fs-5">${(total + 5).toFixed(2)}</span>
-                </div>
-                <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="btn w-100 rounded-pill py-3 fw-bold" style={{ background: 'linear-gradient(135deg, #00D4FF, #7C3AED)', border: 'none', color: 'white' }}>
-                  Checkout →
-                </motion.button>
+          {cart.map((item, index) => (
+            <div key={index} style={{ display: 'flex', gap: '16px', marginBottom: '24px', paddingBottom: '24px', borderBottom: `1px solid ${isDarkMode ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'}` }}>
+              <img src={item.image} alt={item.name} style={{ width: '80px', height: '80px', borderRadius: '16px', objectFit: 'cover' }} />
+              <div style={{ flex: 1 }}>
+                <h4 style={{ fontSize: '16px', fontWeight: 600, marginBottom: '6px', color: isDarkMode ? '#fff' : '#1a1a2e' }}>{item.name}</h4>
+                <p style={{ color: '#6366f1', fontWeight: 600, fontSize: '18px', marginBottom: '10px' }}>${item.price}</p>
+                <button onClick={() => onRemove(item.id)} style={{ background: 'none', border: 'none', color: '#ff3366', cursor: 'pointer', fontSize: '13px', padding: 0, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <Icons.Trash /> Remove
+                </button>
               </div>
-            )}
-          </motion.div>
+            </div>
+          ))}
+          
+          <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: `1px solid ${isDarkMode ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'}` }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+              <span style={{ fontSize: '16px', color: isDarkMode ? '#c0c0d0' : '#666' }}>Subtotal</span>
+              <span style={{ fontSize: '16px', fontWeight: 600, color: isDarkMode ? '#fff' : '#1a1a2e' }}>${total}</span>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+              <span style={{ fontSize: '16px', color: isDarkMode ? '#c0c0d0' : '#666' }}>Shipping</span>
+              <span style={{ fontSize: '16px', color: isDarkMode ? '#fff' : '#1a1a2e' }}>{shipping === 0 ? 'Free' : `$${shipping}`}</span>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '28px', paddingTop: '16px', borderTop: `1px solid ${isDarkMode ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'}` }}>
+              <span style={{ fontSize: '20px', fontWeight: 700, color: isDarkMode ? '#fff' : '#1a1a2e' }}>Total</span>
+              <span style={{ fontSize: '28px', fontWeight: 800, color: '#6366f1' }}>${finalTotal}</span>
+            </div>
+            <button style={{
+              width: '100%',
+              background: 'linear-gradient(135deg, #6366f1, #a855f7)',
+              border: 'none',
+              borderRadius: '50px',
+              padding: '16px',
+              color: 'white',
+              fontWeight: 600,
+              cursor: 'pointer',
+              fontSize: '16px',
+              transition: 'opacity 0.2s'
+            }} onMouseEnter={e => e.currentTarget.style.opacity = '0.9'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
+              Proceed to Checkout →
+            </button>
+          </div>
         </>
       )}
-    </AnimatePresence>
+    </div>
   );
 }
 

@@ -1,45 +1,82 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 function FloatingShapes() {
-  const shapes = [
-    { size: 300, top: '10%', left: '-5%', duration: 20, delay: 0 },
-    { size: 200, bottom: '5%', right: '-5%', duration: 25, delay: 2 },
-    { size: 150, top: '50%', left: '80%', duration: 18, delay: 4 },
-    { size: 100, bottom: '30%', left: '10%', duration: 22, delay: 1 },
-    { size: 250, top: '70%', right: '20%', duration: 30, delay: 3 },
-  ];
-
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
-      {shapes.map((shape, index) => (
-        <motion.div
-          key={index}
-          animate={{
-            y: [0, -50, 0],
-            x: [0, 30, 0],
-            rotate: [0, 90, 0],
-          }}
-          transition={{
-            duration: shape.duration,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: shape.delay
-          }}
-          style={{
-            position: 'absolute',
-            top: shape.top,
-            left: shape.left,
-            bottom: shape.bottom,
-            right: shape.right,
-            width: shape.size,
-            height: shape.size,
-            background: `radial-gradient(circle, rgba(0,212,255,0.1) 0%, rgba(124,58,237,0) 70%)`,
-            borderRadius: '50%',
-            filter: 'blur(40px)',
-          }}
-        />
-      ))}
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      overflow: 'hidden',
+      pointerEvents: 'none',
+      zIndex: 0
+    }}>
+      <div style={{
+        position: 'absolute',
+        top: '10%',
+        left: '5%',
+        width: '300px',
+        height: '300px',
+        background: 'radial-gradient(circle, rgba(99,102,241,0.15), transparent)',
+        borderRadius: '50%',
+        animation: 'float 8s ease-in-out infinite'
+      }} />
+      
+      <div style={{
+        position: 'absolute',
+        bottom: '15%',
+        right: '5%',
+        width: '250px',
+        height: '250px',
+        background: 'radial-gradient(circle, rgba(168,85,247,0.15), transparent)',
+        borderRadius: '50%',
+        animation: 'float 6s ease-in-out infinite reverse'
+      }} />
+      
+      <div style={{
+        position: 'absolute',
+        top: '40%',
+        left: '15%',
+        width: '150px',
+        height: '150px',
+        background: 'radial-gradient(circle, rgba(236,72,153,0.1), transparent)',
+        borderRadius: '50%',
+        animation: 'pulse 4s ease-in-out infinite'
+      }} />
+      
+      <div style={{
+        position: 'absolute',
+        bottom: '30%',
+        left: '20%',
+        width: '120px',
+        height: '120px',
+        background: 'radial-gradient(circle, rgba(99,102,241,0.08), transparent)',
+        borderRadius: '50%',
+        animation: 'float 10s ease-in-out infinite'
+      }} />
+      
+      <div style={{
+        position: 'absolute',
+        top: '60%',
+        right: '15%',
+        width: '180px',
+        height: '180px',
+        background: 'radial-gradient(circle, rgba(0,255,136,0.08), transparent)',
+        borderRadius: '50%',
+        animation: 'float 7s ease-in-out infinite reverse'
+      }} />
+      
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(-30px) translateX(15px); }
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 0.3; transform: scale(1); }
+          50% { opacity: 0.7; transform: scale(1.1); }
+        }
+      `}</style>
     </div>
   );
 }

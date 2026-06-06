@@ -1,88 +1,69 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FiShoppingCart, FiHeart } from 'react-icons/fi';
-import { toast } from 'react-toastify';
+import React from 'react';
+import { Icons } from './Icons';
 
-function ProductCard({ product, addToCart }) {
-  const [isWishlisted, setIsWishlisted] = useState(false);
-
-  const handleAddToCart = () => {
-    addToCart(product);
-    toast.success(`${product.name} added to cart!`, {
-      position: "bottom-right",
-      autoClose: 2000,
-    });
-  };
-
+function ProductCard({ product, isDarkMode, addToCart, toggleWishlist, isWishlisted }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -10 }}
-      className="col-lg-4 col-md-6 mb-4"
-    >
-      <div className="glass-card p-3 h-100 position-relative overflow-hidden">
-        {/* Sale Badge */}
-        <div className="position-absolute top-0 start-0 m-3 z-1">
-          <span className="badge rounded-pill px-2 py-1" style={{ background: 'linear-gradient(135deg, #00FF88, #00D4FF)', fontSize: '11px' }}>
-            🔥 Sale
-          </span>
-        </div>
-
-        {/* Wishlist Button */}
-        <motion.button
-          whileTap={{ scale: 0.9 }}
-          onClick={() => setIsWishlisted(!isWishlisted)}
-          className="btn position-absolute top-0 end-0 m-3 z-1 rounded-circle p-2"
-          style={{ background: 'rgba(255,255,255,0.1)', width: '35px', height: '35px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-        >
-          <FiHeart size={16} color={isWishlisted ? '#FF3366' : 'white'} fill={isWishlisted ? '#FF3366' : 'none'} />
-        </motion.button>
-
-        {/* Image */}
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="image-container overflow-hidden rounded-3 mb-3"
-          style={{ height: '240px' }}
-        >
-          <img src={product.image} className="w-100 h-100" alt={product.name} style={{ objectFit: 'cover' }} />
-        </motion.div>
-
-        {/* Content */}
-        <div className="d-flex justify-content-between align-items-start mb-2">
-          <h5 className="fw-bold mb-0">{product.name}</h5>
-          <span className="text-white-50 small">{product.category}</span>
-        </div>
-
-        {/* Rating */}
-        <div className="d-flex gap-1 mb-2">
-          {[...Array(5)].map((_, i) => (
-            <span key={i} style={{ color: i < Math.floor(product.rating) ? '#FFD700' : 'rgba(255,255,255,0.2)', fontSize: '12px' }}>★</span>
-          ))}
-          <span className="text-white-50 small ms-1">({product.rating})</span>
-        </div>
-
-        <p className="text-white-50 small mb-3">{product.description}</p>
-
-        <div className="d-flex justify-content-between align-items-center">
-          <div>
-            <span className="fw-bold fs-4 gradient-text">${product.price}</span>
-            <span className="text-white-50 text-decoration-line-through small ms-2">${Math.round(product.price * 1.2)}</span>
+    <div style={{ 
+      background: isDarkMode ? 'rgba(255,255,255,0.03)' : '#fff', 
+      borderRadius: '28px', 
+      padding: '24px', 
+      transition: 'all 0.3s', 
+      border: `1px solid ${isDarkMode ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'}`, 
+      position: 'relative' 
+    }} onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = '0 25px 40px rgba(0,0,0,0.1)' }} onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none' }}>
+      
+      {product.isNew && <span style={{ position: 'absolute', top: '20px', left: '20px', background: '#00ff88', color: '#1a1a2e', padding: '4px 14px', borderRadius: '20px', fontSize: '11px', fontWeight: 700, zIndex: 2 }}>NEW</span>}
+      
+      <button onClick={() => toggleWishlist(product.id)} style={{ 
+        position: 'absolute', 
+        top: '20px', 
+        right: '20px', 
+        background: isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
+        border: 'none', 
+        borderRadius: '50%', 
+        width: '38px', 
+        height: '38px', 
+        cursor: 'pointer', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        zIndex: 2, 
+        color: isWishlisted ? '#ff3366' : (isDarkMode ? '#888' : '#aaa') 
+      }}>
+        <Icons.Heart />
+      </button>
+      
+      <img src={product.image} alt={product.name} style={{ width: '100%', height: '260px', objectFit: 'cover', borderRadius: '20px', marginBottom: '20px' }} />
+      
+      <div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+          <h3 style={{ fontSize: '20px', fontWeight: 700, color: isDarkMode ? '#fff' : '#1a1a2e', margin: 0 }}>{product.name}</h3>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            {[...Array(5)].map((_, i) => i < Math.floor(product.rating) ? <Icons.Star key={i} /> : <Icons.StarOutline key={i} />)}
+            <span style={{ fontSize: '12px', color: '#888', marginLeft: '4px' }}>({product.reviews})</span>
           </div>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={handleAddToCart}
-            className="btn rounded-pill px-3 py-2 d-flex align-items-center gap-2"
-            style={{ background: 'linear-gradient(135deg, #00D4FF, #7C3AED)', border: 'none', color: 'white' }}
-          >
-            <FiShoppingCart size={14} /> Add
-          </motion.button>
         </div>
+        <p style={{ color: '#888', fontSize: '14px', marginBottom: '20px' }}>{product.category}</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+          <span style={{ fontSize: '32px', fontWeight: 800, color: isDarkMode ? '#fff' : '#1a1a2e' }}>${product.price}</span>
+          <span style={{ fontSize: '18px', color: '#888', textDecoration: 'line-through' }}>${product.oldPrice}</span>
+          <span style={{ background: '#00ff8820', color: '#00cc6a', padding: '4px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 600 }}>-{product.discount}%</span>
+        </div>
+        <button onClick={() => addToCart(product)} style={{ 
+          width: '100%', 
+          background: 'linear-gradient(135deg, #6366f1, #a855f7)', 
+          border: 'none', 
+          borderRadius: '50px', 
+          padding: '14px', 
+          color: 'white', 
+          fontWeight: 600, 
+          cursor: 'pointer', 
+          transition: 'opacity 0.2s' 
+        }} onMouseEnter={e => e.currentTarget.style.opacity = '0.9'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
+          Add to Cart →
+        </button>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

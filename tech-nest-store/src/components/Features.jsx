@@ -1,73 +1,30 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { FiBattery, FiHeart, FiMapPin, FiDroplet } from 'react-icons/fi';
+import { Icons } from './Icons';
 
-function Features() {
+function Features({ isDarkMode }) {
   const features = [
-    { icon: <FiBattery size={40} />, title: '24-Hour Battery', desc: 'All-day power on a single charge' },
-    { icon: <FiHeart size={40} />, title: 'Heart Rate Monitor', desc: 'Track your health in real-time' },
-    { icon: <FiMapPin size={40} />, title: 'GPS Tracking', desc: 'Never lose your way' },
-    { icon: <FiDroplet size={40} />, title: 'Water Resistant', desc: 'IP68 certified for swimming' },
+    { icon: <Icons.Shipping />, title: 'Free Shipping', desc: 'On orders over $199' },
+    { icon: <Icons.Shield />, title: '2 Year Warranty', desc: 'Premium protection' },
+    { icon: <Icons.Support />, title: '24/7 Support', desc: 'Always here to help' },
+    { icon: <Icons.Headphone />, title: 'Premium Quality', desc: 'Top-tier products' }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
-  };
-
   return (
-    <section id="features" className="py-5" style={{ marginTop: '60px' }}>
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-5"
-        >
-          <span className="badge rounded-pill px-3 py-2 mb-3" style={{ background: 'rgba(0,212,255,0.15)', color: '#00D4FF' }}>
-            ⚡ Premium Features
-          </span>
-          <h2 className="display-5 fw-bold mb-3">
-            Why Choose <span className="gradient-text">TechNest</span>
-          </h2>
-          <p className="text-white-50 mx-auto" style={{ maxWidth: '600px' }}>
-            Experience the perfect blend of innovation, style, and performance
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="row g-4"
-        >
-          {features.map((feature, index) => (
-            <motion.div key={index} variants={itemVariants} className="col-md-6 col-lg-3">
-              <motion.div
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="glass-card p-4 text-center h-100"
-              >
-                <div className="mb-3" style={{ color: '#00D4FF' }}>
-                  {feature.icon}
-                </div>
-                <h5 className="fw-bold mb-2">{feature.title}</h5>
-                <p className="text-white-50 small mb-0">{feature.desc}</p>
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
+    <div style={{ padding: '80px 5%', background: isDarkMode ? '#0a0a0f' : '#fff' }}>
+      <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+        <span style={{ color: '#6366f1', fontSize: '13px', fontWeight: 600, letterSpacing: '2px' }}>WHY CHOOSE US</span>
+        <h2 style={{ fontSize: '32px', fontWeight: 700, marginTop: '12px', color: isDarkMode ? '#fff' : '#1a1a2e' }}>Premium Experience</h2>
       </div>
-    </section>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '30px', maxWidth: '1000px', margin: '0 auto' }}>
+        {features.map(f => (
+          <div key={f.title} style={{ textAlign: 'center', padding: '28px', borderRadius: '20px', background: isDarkMode ? 'rgba(255,255,255,0.03)' : '#f8f9fc', transition: 'transform 0.2s' }} onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}>
+            <div style={{ width: '56px', height: '56px', background: 'linear-gradient(135deg, #6366f1, #a855f7)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', color: 'white' }}>{f.icon}</div>
+            <h4 style={{ fontWeight: 600, marginBottom: '8px', color: isDarkMode ? '#fff' : '#1a1a2e' }}>{f.title}</h4>
+            <p style={{ fontSize: '14px', color: isDarkMode ? '#888' : '#999' }}>{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
