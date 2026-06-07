@@ -1,4 +1,4 @@
-no# 🚀 TechNest – Premium React E-Commerce Website
+# 🚀 TechNest – Premium React E-Commerce Website
 
 ![React](https://img.shields.io/badge/React-19-blue)
 ![Vite](https://img.shields.io/badge/Vite-8.0-purple)
