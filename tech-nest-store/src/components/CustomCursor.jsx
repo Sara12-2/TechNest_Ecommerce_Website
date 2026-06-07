@@ -30,7 +30,7 @@ function CustomCursor() {
     };
   }, []);
 
-  // Hide cursor on mobile
+  // Hide cursor on mobile (check if window exists)
   if (typeof window !== 'undefined' && window.innerWidth < 768) return null;
 
   return (
@@ -47,7 +47,7 @@ function CustomCursor() {
           position: 'fixed',
           width: '8px',
           height: '8px',
-          background: 'linear-gradient(135deg, #00D4FF, #7C3AED)',
+          background: 'linear-gradient(135deg, #6366f1, #a855f7)',
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 9999,
@@ -65,7 +65,7 @@ function CustomCursor() {
           position: 'fixed',
           width: '30px',
           height: '30px',
-          border: '1.5px solid rgba(0,212,255,0.5)',
+          border: '1.5px solid rgba(99,102,241,0.5)',
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 9998,
