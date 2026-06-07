@@ -10,7 +10,7 @@ A modern, fully responsive e-commerce web application built with **React.js** an
 
 ---
 
-## ✨ Features
+## Features
 
 ### 🛍️ E-Commerce Core
 - Product listing with 15+ products across 6 categories
