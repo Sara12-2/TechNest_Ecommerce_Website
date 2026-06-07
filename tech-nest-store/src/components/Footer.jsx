@@ -255,7 +255,7 @@ function Footer({ isDarkMode }) {
             </a>
           </div>
           <p style={{ color: isDarkMode ? '#888' : '#999', fontSize: '12px', margin: 0 }}>
-            Crafted with 💜 by Sara Manzoor
+            Crafted with <Icons.Heart /> by Sara Manzoor
           </p>
         </div>
       </div>

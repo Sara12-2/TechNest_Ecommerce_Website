@@ -30,7 +30,7 @@ const demoVideoUrl = "https://www.youtube.com/embed/3Wqphkd4A8A?autoplay=1";
       
       <div style={{ position: 'relative', zIndex: 2 }}>
         <span style={{ background: 'linear-gradient(135deg, #6366f120, #a855f720)', padding: '8px 20px', borderRadius: '50px', fontSize: '13px', fontWeight: 600, color: '#6366f1', display: 'inline-block', marginBottom: '24px' }}>
-          ⚡ NEXT-GEN TECHNOLOGY
+          <Icons.Bolt /> NEXT-GEN TECHNOLOGY
         </span>
         
         <h1 style={{ 

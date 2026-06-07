@@ -10,14 +10,14 @@ import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
 import { products } from './data/products';
-
+import { Icons } from './components/Icons';
 function App() {
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [wishlist, setWishlist] = useState([]);
 
-  // Load data from localStorage on page load
+  // Load data from localStorage
   useEffect(() => {
     const savedCart = localStorage.getItem('technest-cart');
     if (savedCart) setCart(JSON.parse(savedCart));
@@ -29,17 +29,15 @@ function App() {
     if (savedTheme) setIsDarkMode(savedTheme === 'dark');
   }, []);
 
-  // Save cart to localStorage whenever it changes
+  // Save data to localStorage
   useEffect(() => {
     localStorage.setItem('technest-cart', JSON.stringify(cart));
   }, [cart]);
 
-  // Save wishlist to localStorage
   useEffect(() => {
     localStorage.setItem('technest-wishlist', JSON.stringify(wishlist));
   }, [wishlist]);
 
-  // Save theme to localStorage
   useEffect(() => {
     localStorage.setItem('technest-theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
@@ -113,15 +111,45 @@ function App() {
       
       <Hero isDarkMode={isDarkMode} />
       <Features isDarkMode={isDarkMode} />
-      <ProductList 
-        isDarkMode={isDarkMode} 
-        addToCart={addToCart} 
-        wishlist={wishlist} 
-        toggleWishlist={toggleWishlist} 
-      />
-      <Testimonials isDarkMode={isDarkMode} />
+      
+      {/* Products Section - id="products" */}
+      <div id="products">
+        <ProductList 
+          isDarkMode={isDarkMode} 
+          addToCart={addToCart} 
+          wishlist={wishlist} 
+          toggleWishlist={toggleWishlist} 
+        />
+      </div>
+      
+      {/* Deals Section - id="deals" */}
+      <div id="deals" style={{ marginTop: '60px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+          <span style={{ background: 'linear-gradient(135deg, #6366f1, #a855f7)', padding: '4px 16px', borderRadius: '50px', fontSize: '12px', fontWeight: 600, color: 'white', display: 'inline-block' }}>
+            <span> LIMITED TIME</span>
+          </span>
+          <h2 style={{ fontSize: '32px', fontWeight: 700, marginTop: '16px', color: isDarkMode ? '#fff' : '#1a1a2e' }}>Hot Deals</h2>
+          <p style={{ color: '#888' }}>Up to 50% off on selected items</p>
+        </div>
+        <ProductList 
+          isDarkMode={isDarkMode} 
+          addToCart={addToCart} 
+          wishlist={wishlist} 
+          toggleWishlist={toggleWishlist} 
+        />
+      </div>
+      
+      {/* Reviews Section - id="reviews" */}
+      <div id="reviews">
+        <Testimonials isDarkMode={isDarkMode} />
+      </div>
+      
       <Newsletter isDarkMode={isDarkMode} />
-      <Footer isDarkMode={isDarkMode} />
+      
+      {/* Support Section - id="support" */}
+      <div id="support">
+        <Footer isDarkMode={isDarkMode} />
+      </div>
       
       <CartDrawer 
         isOpen={isCartOpen}
