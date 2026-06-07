@@ -1,4 +1,4 @@
-# 🚀 TechNest – Premium React E-Commerce Website
+no# 🚀 TechNest – Premium React E-Commerce Website
 
 ![React](https://img.shields.io/badge/React-19-blue)
 ![Vite](https://img.shields.io/badge/Vite-8.0-purple)
@@ -178,6 +178,7 @@ Sara Manzoor
 GitHub: @Sara12-2  
 LinkedIn: Sara Manzoor  
 Email: saramanzoor76@gmail.com  
+LinkedIn profile : https://www.linkedin.com/in/sara-manzoor-3a8a56365?utm_source=share_via&utm_content=profile&utm_medium=member_android
 
 ---
 
