@@ -85,7 +85,8 @@
 <td align="center"><img src="tech-nest-store/public/images/footer_Responsiveness_dark.png" width="200"/></td>
 </tr>
 </table>
-## ✨ Features
+
+## Features
 
 ### 🛍️ E-Commerce Core
 - Product catalog with 15+ products across 6 categories
