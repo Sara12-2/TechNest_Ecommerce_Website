@@ -8,7 +8,76 @@
 
 A modern, fully responsive e-commerce web application built with **React.js** and **Vite**. TechNest offers a premium shopping experience with glassmorphism UI, dark/light mode, shopping cart, wishlist, and seamless checkout flow.
 
+# TechNest Store
+
+## Screenshots Gallery
+
+### Home Page
+**Dark Theme**
+![Home Dark](tech-nest-store/public/images/home.png)
+
+**Light Theme**
+![Home Light](tech-nest-store/public/images/home-light.png)
+
 ---
+
+### Footer
+**Dark Theme**
+![Footer Dark](tech-nest-store/public/images/Footer.png)
+
+**Light Theme**
+![Footer Light](tech-nest-store/public/images/footer_light.png)
+
+---
+
+### Best Sellers
+**Dark Theme 1**
+![Best Sellers Dark](tech-nest-store/public/images/best_Sellers.png)
+
+**Light Theme 1**
+![Best Sellers Light](tech-nest-store/public/images/Best_Sellers_light.png)
+
+**Dark Theme 2**
+![Best Sellers 2 Dark](tech-nest-store/public/images/best_Sellers_2.png)
+
+**Light Theme 2**
+![Best Sellers 2 Light](tech-nest-store/public/images/best_Sellers_2_light.png)
+
+---
+
+### Hot Deals
+**Dark Theme**
+![Hot Deals Dark](tech-nest-store/public/images/hot_Deals.png)
+
+**Light Theme**
+![Hot Deals Light](tech-nest-store/public/images/hot_deals_light.png)
+
+---
+
+### Testimonials
+**Dark Theme**
+![Testimonials Dark](tech-nest-store/public/images/testimonials.png)
+
+**Light Theme**
+![Testimonials Light](tech-nest-store/public/images/testimonials_light.png)
+
+---
+
+### Why Choose Us
+**Dark Theme**
+![Why Choose Us Dark](tech-nest-store/public/images/why_choose_us.png)
+
+**Light Theme**
+![Why Choose Us Light](tech-nest-store/public/images/why_choose_us_light.png)
+
+---
+
+### Cart
+**Dark Theme**
+![Cart Dark](tech-nest-store/public/images/cart_dark.png)
+
+**Light Theme**
+![Cart Light](tech-nest-store/public/images/cart_light.png)
 
 ## Features
 
