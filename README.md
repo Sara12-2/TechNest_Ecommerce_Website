@@ -22,7 +22,69 @@
 **TechNest** is a sleek, full-featured e-commerce storefront built to showcase modern frontend engineering with **React 19** and **Vite**. It combines a premium glassmorphism aesthetic with real-world shopping features — search & filtering, cart & wishlist management, checkout flow, and a persistent dark/light theme — all wrapped in a fully responsive layout that works beautifully across mobile, tablet, and desktop.
 
 ---
+## 🖼️ Screenshots Gallery
+## Home Page 
+![Home Dark](tech-nest-store/public/images/home.png)
 
+![Home Light](tech-nest-store/public/images/home-light.png)
+---
+## Best Sellers
+
+![Best Sellers Dark](tech-nest-store/public/images/best_Sellers.png)
+
+![Best Sellers Light](tech-nest-store/public/images/Best_Sellers_light.png)
+
+![Best Sellers 2 Dark](tech-nest-store/public/images/best_Sellers_2.png)
+
+![Best Sellers 2 Light](tech-nest-store/public/images/best_Sellers_2_light.png)
+---
+
+## Hot Deals 
+
+![Hot Deals Dark](tech-nest-store/public/images/hot_Deals.png)
+
+![Hot Deals Light](tech-nest-store/public/images/hot_deals_light.png)
+---
+
+## Testimonials
+
+![Testimonials Dark](tech-nest-store/public/images/testimonials.png)
+
+![Testimonials Light](tech-nest-store/public/images/testimonials_light.png)
+
+---
+## Why Choose us 
+
+![Why Choose Us Dark](tech-nest-store/public/images/why_choose_us.png)
+
+![Why Choose Us Light](tech-nest-store/public/images/why_choose_us_light.png)
+---
+
+## Footer
+![Footer Dark](tech-nest-store/public/images/Footer.png)
+
+![Footer Light](tech-nest-store/public/images/footer_light.png)
+---
+## Cart
+
+<table>
+<tr>
+<td align="center"><img src="tech-nest-store/public/images/cart_dark.png" width="400"/></td>
+<td align="center"><img src="tech-nest-store/public/images/cart_light.png" width="400"/></td>
+</tr>
+</table>
+
+---
+## Responsiveness (Mobile Friendly)
+
+<table>
+<tr>
+<td align="center"><img src="tech-nest-store/public/images/responsiveness_balck_1.png" width="200"/></td>
+<td align="center"><img src="tech-nest-store/public/images/responsiveness_black_2.png" width="200"/></td>
+<td align="center"><img src="tech-nest-store/public/images/resposnsivess_light_2.png" width="200"/></td>
+<td align="center"><img src="tech-nest-store/public/images/footer_Responsiveness_dark.png" width="200"/></td>
+</tr>
+</table>
 ## ✨ Features
 
 ### 🛍️ E-Commerce Core
@@ -56,79 +118,6 @@
 
 ---
 
-## 🖼️ Screenshots Gallery
-
-### 🏠 Home Page
-<table>
-<tr>
-<td align="center"><b>Dark Theme</b><br><img src="tech-nest-store/public/images/home.png" width="420"/></td>
-<td align="center"><b>Light Theme</b><br><img src="tech-nest-store/public/images/home-light.png" width="420"/></td>
-</tr>
-</table>
-
-### 🏆 Best Sellers
-<table>
-<tr>
-<td align="center"><b>Dark Theme</b><br><img src="tech-nest-store/public/images/best_Sellers.png" width="420"/></td>
-<td align="center"><b>Light Theme</b><br><img src="tech-nest-store/public/images/Best_Sellers_light.png" width="420"/></td>
-</tr>
-<tr>
-<td align="center"><b>Dark Theme 2</b><br><img src="tech-nest-store/public/images/best_Sellers_2.png" width="420"/></td>
-<td align="center"><b>Light Theme 2</b><br><img src="tech-nest-store/public/images/best_Sellers_2_light.png" width="420"/></td>
-</tr>
-</table>
-
-### 🔥 Hot Deals
-<table>
-<tr>
-<td align="center"><b>Dark Theme</b><br><img src="tech-nest-store/public/images/hot_Deals.png" width="420"/></td>
-<td align="center"><b>Light Theme</b><br><img src="tech-nest-store/public/images/hot_deals_light.png" width="420"/></td>
-</tr>
-</table>
-
-### 💬 Testimonials
-<table>
-<tr>
-<td align="center"><b>Dark Theme</b><br><img src="tech-nest-store/public/images/testimonials.png" width="420"/></td>
-<td align="center"><b>Light Theme</b><br><img src="tech-nest-store/public/images/testimonials_light.png" width="420"/></td>
-</tr>
-</table>
-
-### ⭐ Why Choose Us
-<table>
-<tr>
-<td align="center"><b>Dark Theme</b><br><img src="tech-nest-store/public/images/why_choose_us.png" width="420"/></td>
-<td align="center"><b>Light Theme</b><br><img src="tech-nest-store/public/images/why_choose_us_light.png" width="420"/></td>
-</tr>
-</table>
-
-### 🛒 Cart
-<table>
-<tr>
-<td align="center"><b>Dark Theme</b><br><img src="tech-nest-store/public/images/cart_dark.png" width="420"/></td>
-<td align="center"><b>Light Theme</b><br><img src="tech-nest-store/public/images/cart_light.png" width="420"/></td>
-</tr>
-</table>
-
-### 🦶 Footer
-<table>
-<tr>
-<td align="center"><b>Dark Theme</b><br><img src="tech-nest-store/public/images/Footer.png" width="420"/></td>
-<td align="center"><b>Light Theme</b><br><img src="tech-nest-store/public/images/footer_light.png" width="420"/></td>
-</tr>
-</table>
-
-### 📱 Mobile Responsiveness
-<table>
-<tr>
-<td align="center"><b>Hero — Dark</b><br><img src="tech-nest-store/public/images/responsiveness_balck_1.png" width="260"/></td>
-<td align="center"><b>Best Sellers — Dark</b><br><img src="tech-nest-store/public/images/responsiveness_black_2.png" width="260"/></td>
-<td align="center"><b>Product Grid — Light</b><br><img src="tech-nest-store/public/images/resposnsivess_light_2.png" width="260"/></td>
-<td align="center"><b>Footer — Dark</b><br><img src="tech-nest-store/public/images/footer_Responsiveness_dark.png" width="260"/></td>
-</tr>
-</table>
-
----
 
 ## 🛠️ Tech Stack
 
