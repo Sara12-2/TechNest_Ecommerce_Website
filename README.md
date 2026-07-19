@@ -88,7 +88,7 @@ tech-nest-store/
 
 ```bash
 # Clone the repository
-git clone https://github.com/Sara12-2/TechNest-Ecommerce.git
+git clone https://github.com/Sara12-2/TechNest_Ecommerce_Website
 
 # Navigate to project
 cd TechNest-Ecommerce
