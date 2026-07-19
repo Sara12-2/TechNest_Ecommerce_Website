@@ -90,11 +90,11 @@ function Features({ isDarkMode }) {
       </div>
 
       {/* Features Grid */}
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(4, 1fr)', 
-        gap: '30px', 
-        maxWidth: '1200px', 
+      <div className="features-grid" style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gap: '30px',
+        maxWidth: '1200px',
         margin: '0 auto'
       }}>
         {features.map((f, index) => (

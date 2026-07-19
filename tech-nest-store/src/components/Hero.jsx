@@ -97,11 +97,11 @@ function Hero({ isDarkMode }) {
         </span>
         
         {/* Main Heading */}
-        <h1 style={{ 
-          fontSize: '64px', 
-          fontWeight: 800, 
-          lineHeight: '1.1', 
-          marginBottom: '16px', 
+        <h1 className="hero-heading" style={{
+          fontSize: '64px',
+          fontWeight: 800,
+          lineHeight: '1.1',
+          marginBottom: '16px',
           letterSpacing: '-2px',
           color: isDarkMode ? '#fff' : '#1a1a2e'
         }}>
@@ -130,11 +130,12 @@ function Hero({ isDarkMode }) {
         </p>
         
         {/* Buttons */}
-        <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', marginBottom: '50px' }}>
-          <button 
+        <div className="hero-buttons" style={{ display: 'flex', gap: '15px', justifyContent: 'center', marginBottom: '50px', flexWrap: 'wrap' }}>
+          <button
+            className="hero-btn"
             onClick={scrollToProducts}
-            style={{ 
-              background: 'linear-gradient(135deg, #6366f1, #a855f7)', 
+            style={{
+              background: 'linear-gradient(135deg, #6366f1, #a855f7)',
               border: 'none', 
               borderRadius: '50px', 
               padding: '12px 36px', 
@@ -157,10 +158,11 @@ function Hero({ isDarkMode }) {
             Explore Collection <Icons.ArrowRight style={{ marginLeft: '6px', transition: 'transform 0.3s' }} />
           </button>
           
-          <button 
+          <button
+            className="hero-btn"
             onClick={() => setIsVideoOpen(true)}
-            style={{ 
-              background: 'transparent', 
+            style={{
+              background: 'transparent',
               border: `2px solid ${isDarkMode ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.2)'}`, 
               borderRadius: '50px', 
               padding: '12px 36px', 
@@ -245,7 +247,7 @@ function Hero({ isDarkMode }) {
           cursor: 'pointer',
           animation: 'fadeIn 0.3s ease'
         }} onClick={() => setIsVideoOpen(false)}>
-          <div style={{
+          <div className="hero-video-modal" style={{
             position: 'relative',
             width: '80%',
             maxWidth: '900px',
@@ -281,6 +283,7 @@ function Hero({ isDarkMode }) {
               <Icons.Close />
             </button>
             <iframe
+              className="hero-video-frame"
               width="100%"
               height="500"
               src={demoVideoUrl}
@@ -299,14 +302,29 @@ function Hero({ isDarkMode }) {
           to { opacity: 1; }
         }
         @keyframes scaleIn {
-          from { 
+          from {
             opacity: 0;
             transform: scale(0.9);
           }
-          to { 
+          to {
             opacity: 1;
             transform: scale(1);
           }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+          .hero-heading { font-size: 42px !important; letter-spacing: -1px !important; }
+        }
+        @media (max-width: 480px) {
+          .hero-heading { font-size: 32px !important; }
+          .hero-btn { width: 100% !important; text-align: center !important; justify-content: center !important; }
+          .hero-buttons { flex-direction: column !important; align-items: center !important; }
+          .hero-video-modal { width: 92% !important; }
+          .hero-video-frame { height: 220px !important; }
+        }
+        @media (min-width: 481px) and (max-width: 768px) {
+          .hero-video-frame { height: 340px !important; }
         }
       `}</style>
     </div>

@@ -14,7 +14,7 @@ function Testimonials({ isDarkMode }) {
         <span style={{ color: '#6366f1', fontSize: '13px', fontWeight: 600, letterSpacing: '2px' }}>TESTIMONIALS</span>
         <h2 style={{ fontSize: '32px', fontWeight: 700, marginTop: '12px', color: isDarkMode ? '#fff' : '#1a1a2e' }}>What Our Customers Say</h2>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', maxWidth: '1100px', margin: '0 auto' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '30px', maxWidth: '1100px', margin: '0 auto' }}>
         {testimonials.map(t => (
           <div key={t.name} style={{ background: isDarkMode ? 'rgba(255,255,255,0.03)' : '#fff', borderRadius: '24px', padding: '32px', textAlign: 'center', transition: 'transform 0.2s' }} onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}><Icons.Quote /></div>

@@ -24,16 +24,17 @@ function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity, onRemove, total, 
   };
 
   return (
-    <div style={{ 
-      position: 'fixed', 
-      top: 0, 
-      right: 0, 
-      width: '420px', 
-      height: '100vh', 
-      background: isDarkMode ? '#0a0a0f' : '#fff', 
-      boxShadow: '-10px 0 30px rgba(0,0,0,0.3)', 
-      zIndex: 1000, 
-      padding: '28px', 
+    <div className="cart-drawer" style={{
+      position: 'fixed',
+      top: 0,
+      right: 0,
+      width: '420px',
+      maxWidth: '100vw',
+      height: '100vh',
+      background: isDarkMode ? '#0a0a0f' : '#fff',
+      boxShadow: '-10px 0 30px rgba(0,0,0,0.3)',
+      zIndex: 1000,
+      padding: '28px',
       overflowY: 'auto',
       animation: 'slideIn 0.3s ease'
     }}>
@@ -412,6 +413,10 @@ function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity, onRemove, total, 
             opacity: 1;
             transform: translateY(0);
           }
+        }
+
+        @media (max-width: 480px) {
+          .cart-drawer { padding: 20px !important; }
         }
       `}</style>
     </div>

@@ -250,7 +250,7 @@ function ProductList({ isDarkMode, addToCart, wishlist, toggleWishlist, title = 
 
       {/* Search Bar */}
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '30px' }}>
-        <div style={{ position: 'relative', width: '300px' }}>
+        <div style={{ position: 'relative', width: '100%', maxWidth: '300px' }}>
           <span style={{ 
             position: 'absolute', 
             left: '15px', 
@@ -336,9 +336,9 @@ function ProductList({ isDarkMode, addToCart, wishlist, toggleWishlist, title = 
           </p>
         </div>
       ) : (
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(3, 1fr)', 
+        <div className="products-grid" style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
           gap: '25px',
           maxWidth: '1100px',
           margin: '0 auto'
@@ -368,6 +368,14 @@ function ProductList({ isDarkMode, addToCart, wishlist, toggleWishlist, title = 
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(30px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+          .products-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 560px) {
+          .products-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
         }
       `}</style>
     </div>

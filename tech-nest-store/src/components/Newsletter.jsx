@@ -192,9 +192,10 @@ function Newsletter({ isDarkMode }) {
                 padding: '14px 24px', 
                 borderRadius: '60px', 
                 border: `2px solid ${error ? '#ff3366' : (isDarkMode ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.15)')}`, 
-                background: isDarkMode ? 'rgba(255,255,255,0.05)' : '#f8f9fc', 
-                color: isDarkMode ? '#fff' : '#1a1a2e', 
-                width: '320px', 
+                background: isDarkMode ? 'rgba(255,255,255,0.05)' : '#f8f9fc',
+                color: isDarkMode ? '#fff' : '#1a1a2e',
+                width: '100%',
+                maxWidth: '320px',
                 outline: 'none',
                 fontSize: '15px',
                 transition: 'all 0.3s ease'

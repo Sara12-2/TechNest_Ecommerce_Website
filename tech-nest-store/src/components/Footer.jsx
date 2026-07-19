@@ -15,13 +15,11 @@ function Footer({ isDarkMode }) {
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         
         {/* Main Footer Grid */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(4, 1fr)', 
-          gap: '40px', 
-          marginBottom: '50px',
-          '@media (max-width: 768px)': { gridTemplateColumns: 'repeat(2, 1fr)', gap: '30px' },
-          '@media (max-width: 480px)': { gridTemplateColumns: '1fr', gap: '35px' }
+        <div className="footer-grid" style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '40px',
+          marginBottom: '50px'
         }}>
           
           {/* Brand Section */}
@@ -252,16 +250,15 @@ function Footer({ isDarkMode }) {
         </div>
         
         {/* Bottom Bar */}
-        <div style={{ 
-          textAlign: 'center', 
-          paddingTop: '30px', 
+        <div className="footer-bottom" style={{
+          textAlign: 'center',
+          paddingTop: '30px',
           borderTop: `1px solid ${isDarkMode ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'}`,
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
-          gap: '15px',
-          '@media (max-width: 768px)': { flexDirection: 'column', gap: '12px' }
+          gap: '15px'
         }}>
           <p style={{ color: isDarkMode ? '#888' : '#999', fontSize: '12px', margin: 0 }}>
             © 2026 TECHNEST. All rights reserved.
@@ -282,6 +279,16 @@ function Footer({ isDarkMode }) {
           </p>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .footer-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 30px !important; }
+          .footer-bottom { flex-direction: column !important; gap: 12px !important; }
+        }
+        @media (max-width: 480px) {
+          .footer-grid { grid-template-columns: 1fr !important; gap: 35px !important; }
+        }
+      `}</style>
     </footer>
   );
 }
